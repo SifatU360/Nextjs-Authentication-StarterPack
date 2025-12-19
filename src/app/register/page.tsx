@@ -17,13 +17,14 @@ const RegisterPage = () => {
   const {
     register,
     handleSubmit,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     formState: { errors },
   } = useForm<UserData>();
 
   const router = useRouter();
 
   const onSubmit = async (data: UserData) => {
-    console.log(data);
+    // console.log(data);
 
     try {
       const res = await registerUser(data);
