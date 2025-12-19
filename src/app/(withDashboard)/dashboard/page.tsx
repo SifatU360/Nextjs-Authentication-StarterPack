@@ -13,7 +13,7 @@ const DashboardPage = async () => {
           <h1 className="text-4xl text-center mt-10">Welcome {session?.user?.name}</h1>
           <h1 className="text-4xl text-center mt-10">Logged In email: {session?.user?.email}</h1>
           <Image
-            src={session?.user?.image as string}
+            src={session?.user?.image as string || "https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211471.png"}
             alt="User Image"
             width={100}
             height={100}
