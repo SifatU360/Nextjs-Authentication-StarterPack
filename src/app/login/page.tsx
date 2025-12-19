@@ -104,7 +104,7 @@ const LoginPage = () => {
               />
             </button>
             <button className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200" onClick={() => signIn("github", {
-              callbackUrl: "localhost:3000/dashboard"
+              callbackUrl: "https://localhost:3000/dashboard"
             })}>
               <Image
                 src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
