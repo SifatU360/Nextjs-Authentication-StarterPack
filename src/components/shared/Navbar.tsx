@@ -1,6 +1,16 @@
-import Link from "next/link";
+"use client";
 
-const Navbar = () => {
+import { signOut } from "next-auth/react";
+import Link from "next/link";
+type NavbarProps = {
+  user?: {
+    name?: string | null ;
+    email?: string | null ;
+    image?: string | null ;
+  }
+}
+
+const Navbar = ({session}: {session: NavbarProps | null}) => {
   return (
     <div className="w-[90%] mx-auto flex items-center justify-between bg-white border-b py-4">
       <div className="flex items-center">
@@ -66,15 +76,19 @@ const Navbar = () => {
       </div>
 
       <div className="flex items-center">
-        <button className="border border-red-500 text-red-500 px-5 py-2 rounded-full hover:bg-red-500 hover:text-black transition duration-200">
+        {session?.user ?
+        (<button onClick={() => signOut({
+          callbackUrl: "http://localhost:3000/login"
+        })} className="border border-red-500 text-red-500 px-5 py-2 rounded-full hover:bg-red-500 hover:text-black transition duration-200">
           Logout
-        </button>
-        <Link
+        </button>)
+        :
+        (<Link
           href="/login"
           className="border border-teal-500 text-teal-500 px-5 py-2 rounded-full hover:bg-teal-500 hover:text-black transition duration-200"
         >
           Login
-        </Link>
+        </Link>)}
       </div>
     </div>
   );
